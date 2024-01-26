@@ -1,16 +1,20 @@
 {
-  "name": "github-action-for-cli",
-  "description": "This is to be used for running tests for the GitHub Action using the MakeFile",
-  "version": "3.1.1",
+  "name": "github-action-for-generator",
+  "version": "2.1.12",
+  "description": "GitHub action to generate all the things form your AsyncAPI document",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "make test",
+    "release": "semantic-release",
+    "lint": "eslint --max-warnings 0 --config .eslintrc lib",
+    "test": "jest --coverage",
+    "start": "node lib/index.js",
     "generate:assets": "echo 'No additional assets need to be generated at the moment'",
-    "docker:build": "docker build -t asyncapi/github-action-for-cli:latest .",
-    "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION"
+    "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
+    "docker:build": "docker build -t asyncapi/github-action-for-generator:latest ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asyncapi/github-action-for-cli.git"
+    "url": "git+https://github.com/asyncapi/github-action-for-generator.git"
   },
   "keywords": [
     "GitHub",
@@ -20,11 +24,8 @@
   "author": "Lukasz Gornicki <lpgornicki@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/asyncapi/github-action-for-cli/issues"
+    "url": "https://github.com/asyncapi/github-action-for-generator/issues"
   },
-<<<<<<< HEAD
-  "homepage": "https://github.com/asyncapi/github-action-for-cli#readme"
-=======
   "homepage": "https://github.com/asyncapi/github-action-for-generator#readme",
   "devDependencies": {
     "@npmcli/run-script": "^1.8.5",
@@ -41,7 +42,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.9.1",
-    "@asyncapi/generator": "^1.14.0"
+    "@asyncapi/generator": "^1.10.0"
   },
   "release": {
     "branches": [
@@ -69,5 +70,4 @@
       "@semantic-release/github"
     ]
   }
->>>>>>> origin/bot/bump-@asyncapi/generator-1.14.0
 }
